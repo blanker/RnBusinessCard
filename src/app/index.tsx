@@ -1,22 +1,22 @@
-import {View, Text, Link} from "@/components/general/Themed";
+import {View, StyleSheet} from "react-native";
+import Game from "@/components/Game";
+import {StatusBar} from "expo-status-bar";
+import {GestureHandlerRootView} from "react-native-gesture-handler";
 
-export default function HomeScreen() {
+export default function App() {
     return (
-        <View
-            style={{
-                flex: 1,
-                alignItems: 'center',
-                gap: 10,
-            }}>
-            <Link
-                href='/workout/current'
-            >Resume Current Workout</Link>
+        <GestureHandlerRootView style={styles.container}>
+            <Game />
 
-            <Link
-                href='/workout/123'
-            >Open Workout with id 123</Link>
+            <StatusBar style='auto' />
 
-            <Text>Home Screen</Text>
-        </View>
+        </GestureHandlerRootView>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    }
+})
